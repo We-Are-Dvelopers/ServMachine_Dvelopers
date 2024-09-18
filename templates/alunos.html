@@ -131,7 +131,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            z-index: 1000;
+            z-index: 9999999;
         }
 
         .loader-dot {
@@ -338,6 +338,7 @@
                 <div class="mb-3">
                     <input type="text" class="form-control" id="cpf" name="cpf" placeholder="Ex: 111111111">
                 </div>
+                <div id="errorContainer" style="color: red;"></div>
                 <button type="submit" class="btn btn-primary">Visualizar</button>
             </form>
 		</div>
@@ -361,6 +362,7 @@
                 <div class="mb-3">
                     <input type="text" class="form-control" id="cpf" name="cpf" placeholder="Ex: 111111111">
                 </div>
+                <div id="errorContainer_en" style="color: red;"></div>
                 <button type="submit" class="btn btn-primary">Visualizar</button>
             </form>
 		</div>
@@ -382,6 +384,52 @@
 	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
 	<script>
+$('#modalForm').submit(function(e) {
+    $(".loading").css("display", "flex");
+    e.preventDefault();
+    $.ajax({
+        url: $(this).attr('action'),
+        type: 'POST',
+        data: $(this).serialize(),
+        success: function(response) {
+            $('#modalForm')[0].reset();
+            if (response.success) {
+                window.location.href = response.certificate_url;  // Redireciona para o certificado
+            } else {
+                $('#errorContainer').text(response.message);  // Exibe mensagem de erro
+            }
+            $(".loading").css("display", "none");
+        },
+        error: function() {
+            $('#errorContainer').text('Ocorreu um erro ao processar a requisição.');
+            $(".loading").css("display", "none");
+        }
+    });
+});
+$('#modalFormEn').submit(function(e) {
+    $(".loading").css("display", "flex");
+    e.preventDefault();
+    $.ajax({
+        url: $(this).attr('action'),
+        type: 'POST',
+        data: $(this).serialize(),
+        success: function(response) {
+            $('#modalFormEn')[0].reset();
+            if (response.success) {
+                window.location.href = response.certificate_url;  // Redireciona para o certificado
+            } else {
+                $('#errorContainer_en').text(response.message);  // Exibe mensagem de erro
+            }
+            $(".loading").css("display", "none");
+        },
+        error: function() {
+            $('#errorContainer_en').text('Ocorreu um erro ao processar a requisição.');
+            $(".loading").css("display", "none");
+        }
+        
+    });
+});
+
 function capitalizeFirstLetter(word) {
     if (typeof word !== 'string' || word.length === 0) {
         return word;

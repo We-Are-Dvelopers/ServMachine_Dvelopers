@@ -164,6 +164,62 @@ def old_profissionais(request):
 
 from django.shortcuts import redirect
 
+# def visualizar_certificado(request):
+#     if request.method == 'POST':
+#         id = request.POST.get('personId')
+#         cpf = request.POST.get('cpf')
+        
+#         DATABASES = {
+#             "default": {
+#                 "ENGINE": "django.db.backends.postgresql",
+#                 "NAME": "servmachine",
+#                 "USER": "servmachinedjango",
+#                 "PASSWORD": "Marcelo1969#",
+#                 "HOST": "18.223.237.128",
+#                 "PORT": 5432,
+#             }
+#         }
+
+#         # Extrair configurações do banco de dados
+#         db_config = DATABASES["default"]
+#         try:
+#             connection = psycopg2.connect(
+#                 dbname=db_config['NAME'],
+#                 user=db_config['USER'],
+#                 password=db_config['PASSWORD'],
+#                 host=db_config['HOST'],
+#                 port=db_config['PORT']
+#             )
+#             cursor = connection.cursor()
+            
+#             # Consultar o banco de dados para obter o profissional pelo ID
+#             professional_query = "SELECT * FROM api_professional WHERE id = %s"
+#             cursor.execute(professional_query, (id,))
+            
+#             # Obter o resultado da consulta
+#             professional = cursor.fetchone()
+            
+#             # Fechar o cursor e a conexão
+#             cursor.close()
+#             connection.close()
+            
+#             if professional:
+#                 if professional[7] == cpf:
+#                     certificate_url = f'https://servmachine.com.br/certificates?id={id}&document={cpf}'
+#                     return HttpResponseRedirect(certificate_url)
+#                 else:
+#                     # Se o nome fornecido pelo usuário não corresponder ao nome no banco de dados
+#                     # redirecione para outra página
+#                     return redirect('alunos')
+#             else:
+#                 # Se o profissional não for encontrado, retorne uma mensagem de erro
+#                 return JsonResponse({'success': False, 'message': 'Profissional não encontrado.'})
+#         except psycopg2.Error as e:
+#             # Lidar com erros de conexão ou consulta
+#             return JsonResponse({'success': False, 'message': f'Erro: {e}'})
+    
+#     # Se o método não for POST ou se não houver dados no POST, retorne o template
+#     return render(request, 'index.html')
 def visualizar_certificado(request):
     if request.method == 'POST':
         id = request.POST.get('personId')
@@ -206,21 +262,72 @@ def visualizar_certificado(request):
             if professional:
                 if professional[7] == cpf:
                     certificate_url = f'https://servmachine.com.br/certificates?id={id}&document={cpf}'
-                    return HttpResponseRedirect(certificate_url)
+                    return JsonResponse({'success': True, 'certificate_url': certificate_url})
                 else:
-                    # Se o nome fornecido pelo usuário não corresponder ao nome no banco de dados
-                    # redirecione para outra página
-                    return redirect('alunos')
+                    return JsonResponse({'success': False, 'message': 'CPF não corresponde ao registrado.'})
             else:
-                # Se o profissional não for encontrado, retorne uma mensagem de erro
                 return JsonResponse({'success': False, 'message': 'Profissional não encontrado.'})
         except psycopg2.Error as e:
-            # Lidar com erros de conexão ou consulta
             return JsonResponse({'success': False, 'message': f'Erro: {e}'})
     
-    # Se o método não for POST ou se não houver dados no POST, retorne o template
-    return render(request, 'index.html')
+    return JsonResponse({'success': False, 'message': 'Método não permitido. Utilize POST.'})
 
+# def visualizar_certificado_en(request):
+#     if request.method == 'POST':
+#         id = request.POST.get('personIdEn')
+#         cpf = request.POST.get('cpf')
+        
+#         DATABASES = {
+#             "default": {
+#                 "ENGINE": "django.db.backends.postgresql",
+#                 "NAME": "servmachine",
+#                 "USER": "servmachinedjango",
+#                 "PASSWORD": "Marcelo1969#",
+#                 "HOST": "18.223.237.128",
+#                 "PORT": 5432,
+#             }
+#         }
+
+#         # Extrair configurações do banco de dados
+#         db_config = DATABASES["default"]
+#         try:
+#             connection = psycopg2.connect(
+#                 dbname=db_config['NAME'],
+#                 user=db_config['USER'],
+#                 password=db_config['PASSWORD'],
+#                 host=db_config['HOST'],
+#                 port=db_config['PORT']
+#             )
+#             cursor = connection.cursor()
+            
+#             # Consultar o banco de dados para obter o profissional pelo ID
+#             professional_query = "SELECT * FROM api_professional WHERE id = %s"
+#             cursor.execute(professional_query, (id,))
+            
+#             # Obter o resultado da consulta
+#             professional = cursor.fetchone()
+            
+#             # Fechar o cursor e a conexão
+#             cursor.close()
+#             connection.close()
+            
+#             if professional:
+#                 if professional[7] == cpf:
+#                     certificate_url = f'https://servmachine.com.br/certificates?id={id}&document={cpf}&locale=en'
+#                     return HttpResponseRedirect(certificate_url)
+#                 else:
+#                     # Se o nome fornecido pelo usuário não corresponder ao nome no banco de dados
+#                     # redirecione para outra página
+#                     return redirect('alunos')
+#             else:
+#                 # Se o profissional não for encontrado, retorne uma mensagem de erro
+#                 return JsonResponse({'success': False, 'message': 'Profissional não encontrado.'})
+#         except psycopg2.Error as e:
+#             # Lidar com erros de conexão ou consulta
+#             return JsonResponse({'success': False, 'message': f'Erro: {e}'})
+    
+#     # Se o método não for POST ou se não houver dados no POST, retorne o template
+#     return render(request, 'index.html')
 def visualizar_certificado_en(request):
     if request.method == 'POST':
         id = request.POST.get('personIdEn')
@@ -263,17 +370,12 @@ def visualizar_certificado_en(request):
             if professional:
                 if professional[7] == cpf:
                     certificate_url = f'https://servmachine.com.br/certificates?id={id}&document={cpf}&locale=en'
-                    return HttpResponseRedirect(certificate_url)
+                    return JsonResponse({'success': True, 'certificate_url': certificate_url})
                 else:
-                    # Se o nome fornecido pelo usuário não corresponder ao nome no banco de dados
-                    # redirecione para outra página
-                    return redirect('alunos')
+                    return JsonResponse({'success': False, 'message': 'CPF does not match the registered one.'})
             else:
-                # Se o profissional não for encontrado, retorne uma mensagem de erro
-                return JsonResponse({'success': False, 'message': 'Profissional não encontrado.'})
+                return JsonResponse({'success': False, 'message': 'Professional not found.'})
         except psycopg2.Error as e:
-            # Lidar com erros de conexão ou consulta
-            return JsonResponse({'success': False, 'message': f'Erro: {e}'})
+            return JsonResponse({'success': False, 'message': f'Error: {e}'})
     
-    # Se o método não for POST ou se não houver dados no POST, retorne o template
-    return render(request, 'index.html')
+    return JsonResponse({'success': False, 'message': 'Method not allowed. Use POST.'})
