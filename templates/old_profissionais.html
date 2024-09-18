@@ -1,0 +1,717 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-3LGR9PZLRS"></script>
+        <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+    
+        gtag('config', 'G-3LGR9PZLRS');
+        </script>
+        <meta charset="utf-8">
+            <!-- Meta Title -->
+        <title>Servmachine - Referência em Certificação de Profissionais de MND</title>
+    
+        <!-- Meta Description -->
+        <meta name="description" content="Servmachine é uma empresa líder em certificação e qualificação de profissionais em Métodos Não Destrutivos (MND), com foco na segurança e excelência em perfuração direcional. Oferecemos consultoria, treinamento e reciclagem para operadores, navegadores e inspetores de HDD. Conheça a história do nosso CEO, Marcelo Lourenço, e nossos serviços de consultoria empresarial.">
+    
+        <!-- Meta Keywords -->
+        <meta name="keywords" content="certificação de profissionais, MND, perfuração direcional, HDD, furo direcional, consultoria, treinamento, reciclagem, Marcelo Lourenço, Servmachine, engenharia de perfuração, treinamento in company, consultoria empresarial, qualificação de mão de obra">
+    
+        <!-- Meta Author -->
+        <meta name="author" content="Servmachine">
+    
+        <!-- Meta Robots -->
+        <meta name="robots" content="index, follow">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="description" content="Health Care Medical Html5 Template">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+        <meta name="author" content="Themefisher">
+        <meta name="generator" content="Themefisher Novena HTML Template v1.0">
+        
+        <meta name="theme-name" content="novena" />
+        <!-- Favicon -->
+        {% load static %}
+    
+    
+        <!-- Open Graph / Facebook -->
+        <meta property="og:type" content="website">
+        <meta property="og:title" content="Servmachine - Referência em Certificação de Profissionais de MND">
+        <meta property="og:description" content="Servmachine é uma empresa líder em certificação e qualificação de profissionais em Métodos Não Destrutivos (MND), com foco na segurança e excelência em perfuração direcional. Oferecemos consultoria, treinamento e reciclagem para operadores, navegadores e inspetores de HDD. Conheça a história do nosso CEO, Marcelo Lourenço, e nossos serviços de consultoria empresarial.">
+        <meta property="og:image" content="{% static 'images/cover.jpg' %}">
+        <meta property="og:url" content="http://servmachine.com.br">
+        <meta property="og:site_name" content="Servmachine">
+    
+        <link rel="shortcut icon" type="image/x-icon" href="{% static 'images/favicon.png' %}'" />
+          <link rel="stylesheet" href="{% static 'plugins/bootstrap/bootstrap.min.css' %}">
+          <link rel="stylesheet" href="{% static 'plugins/icofont/icofont.min.css' %}">
+          <link rel="stylesheet" href="{% static 'plugins/slick-carousel/slick/slick.css' %}">
+          <link rel="stylesheet" href="{% static 'plugins/slick-carousel/slick/slick-theme.css' %}">
+      
+          <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v5.15.4/css/all.css">
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha384-K0eMnDqoAqYFgpzne6IbgmY5z2UB4GG6d7iGm2ypLPpZXzIi0gHiYfjnvuHlNg1t4" crossorigin="anonymous">
+          <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+      
+          <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css"/>
+          <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js'"></script>
+      
+          <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    
+        <script type="application/ld+json">
+            {
+              "@context": "https://schema.org",
+              "@type": "Organization",
+              "name": "Servmachine",
+              "url": "http://servmachine.com.br",
+              "logo": "http://servmachine.com.br/static/images/logo.png",
+              "description": "Empresa líder em certificação e qualificação de profissionais em Métodos Não Destrutivos (MND), com foco na segurança e excelência em perfuração direcional.",
+              "founder": {
+                "@type": "Person",
+                "name": "Marcelo Lourenço",
+                "description": "CEO da Servmachine e referência em Perfuração Direcional no Brasil."
+              },
+              "sameAs": [
+                "https://www.instagram.com/servmachine/",
+            
+              ],
+              "contactPoint": {
+                "@type": "ContactPoint",
+                "telephone": "+55(11)9 4066-1233",
+                "contactType": "Raquel"
+              }
+            }
+            </script>
+    
+    </head>
+
+    <style>
+        .containerWhatsApp {
+    position: fixed;
+    right: 20px;
+    bottom: 40px;
+    height: 50px;
+    width: 50px;
+    z-index: 99999;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-start;
+}
+
+.controleWhats {
+    position: relative;
+    width: 50px;
+    height: 50px;
+}
+
+.btnOpenWhats {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    padding: 8px 10px;
+    border-radius: 50%;
+    background: #007630;
+    color: #fff;
+    border: none;
+    right: 0;
+    bottom: 0;
+    font-size: 33px;
+    line-height: 33px;
+}
+.loading{
+            background: radial-gradient(white, transparent);
+            width: 100%;
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            left: 0;
+            top: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .loader-dot {
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        background-color: #02719E;
+        margin: 0 10px;
+        animation: loader-dot 1.5s infinite ease-in-out;
+        animation-delay: calc(0.5s);
+        }
+
+        .loader-dot:nth-child(2) {
+        animation-delay: calc(0.5s + 0.25s);
+        }
+
+        .loader-dot:nth-child(3) {
+        animation-delay: calc(0.5s + 0.5s);
+        }
+
+        @keyframes loader-dot {
+        0% {
+            transform: scale(1);
+        }
+        50% {
+            transform: scale(1.5);
+        }
+        100% {
+            transform: scale(1);
+        }
+        }
+    </style>
+
+<body id="top">
+
+    <div class="loading">
+        <div class="loader-dot"></div>
+        <div class="loader-dot"></div>
+        <div class="loader-dot"></div>
+    </div>
+
+    <header>
+        <nav class="navbar navbar-expand-lg navigation background-primary justify-content-center menu" id="navbar">
+            <div class="d-sm-flex">
+                <a class="navbar-brand" href="{% url 'index'%}">
+                    <img src="{% static 'images/logo.png' %}" alt="" class="img-fluid">
+                </a>
+                <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarmain"
+                    aria-controls="navbarmain" aria-expanded="false" aria-label="Toggle navigation" style="color: #134A73">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <div class="collapse navbar-collapse justify-content-center" id="navbarmain">
+                    <ul class="navbar-nav justify-content-between">
+                        <li class="nav-item"><a class="nav-link p-0 px-3" href="{% url 'index'%}#quemsomos">quem somos</a></li>
+                        <li class="nav-item"><a class="nav-link p-0 px-3" href="{% url 'index'%}#servicos">nossos serviços</a></li>
+                        <li class="nav-item"><a class="nav-link p-0 px-3" href="{% url 'index'%}#time">nossos instrutores</a></li>
+                        <li class="nav-item"><a class="nav-link p-0 px-3" href="{% url 'index'%}#treinamentos">agenda de treinamento</a></li>
+                        <li class="nav-item"><a class="nav-link p-0 px-3" href="{% url 'alunos'%}">alunos certificados</a></li>
+                        <li class="nav-item"><a class="nav-link p-0 px-3" href="{% url 'index'%}#museu">museu do HDD</a></li>
+                        <li class="nav-item"><a class="nav-link p-0 px-3" href="{% url 'index'%}#contato">contato</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+<div style="padding-top: 80px;">
+    <section class="segundo-banner">
+        <div class="row">
+            <div class="col-md-8 col-12 d-flex align-items-center" style="height: 100%;">
+                <div class="mt-90">
+                    <h1>Bem-vindo ao banco de dados dos Profissionais da ServMachine</h1>
+					<form action="" id="formPesquisa">
+						<div class="relative row justify-content-center py-5">
+							<input type="text" name="nome" class="form-control col-md-4 col-10" placeholder="Nome do Aluno (Primeiro Nome)" value="" style="background-image: url(&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAADPSURBVHgB7ZRtDcIwEIavBAGVUAcgYRJwABJwABJwwCTgYEgABZMwHJQ7uIZLA9uN3X4s2ZO8abP2vrcBzEyCGGNAVagmvqF9AAvYeXIsaUyCcLZEifIcsEyVwFBExkE886mKLvsFdPPIVsJn6/+IFp25PZ73Zi0ad8giSCUc272mQ3Fth5hlgcsGtUKt4TNUGvgNdUddnHNX6AM63qHqqIfubrXOD9kgT1TJl++g4LNa3N9rAiSDIyghxykhzeUX0JNfdss2AzBA86uYmThPUqFUP3ClOSwAAAAASUVORK5CYII=&quot;); background-size: 25px; background-position: 5px center; background-repeat: no-repeat; padding-left: 40px !important; height: 50px;">
+							<select name="especialidade" class="form-control col-md-4 col-10" style="background-image: url(&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAB+SURBVHgB7ZRRCoAwCIY1OkDdoJt1ho7QSesG2w3MQQtbjIRtPYQfyESH/6YgwO8hopnN0ZMt5KCUs1AOB6XEStp4SgeNuQRyvRZ5VTydDYqLGx8T1MEj4niLaHv6RlrnuxmYgAmYQDt64Xu2oca6YPboyB8sMlFAeOgKhpYDOz6qDnK3OjgAAAAASUVORK5CYII=&quot;); background-size: 25px; background-position: 5px center; background-repeat: no-repeat; padding-left: 40px; height: 50px;">
+								<option value="">Selecione uma especialidade</option>
+								<option value="IN">Inspetor de Perfuração Direcional</option>
+								<option value="NA">Navegador de Perfuração Direcional</option>
+								<option value="OP">Operador de Máquina Perfuratriz</option>
+								<option value="MP">Mapeador de Interferência</option>
+								<option value="SD">Sondador</option>
+							</select>
+							<button class="text-white px-4 py-2 w-[400px] h-11 col-md-3 col-10" style="background-color: rgb(59 130 246); border: none;">Buscar Profissionais</button>
+						</div>
+					</form>	
+                </div>
+            </div>
+            <div class="col-md-4 col-12 d-md-block d-none">
+                <img src="/static/images/BRSM.png" alt="" style="height: 100%; width: auto;">
+            </div>
+        </div>
+    </section>
+    <section class="banner section homenagem" style="height: auto;">
+        <h4 class="text-center" id="todos"></h4>
+        <div id="trainings" class="row px-md-5 px-0 mx-md-5 mx-0 mt-3">
+
+		</div>
+		<div id="pagination" class="d-flex justify-content-center mt-4"></div>
+
+</section>
+</div>
+<footer class="footer section gray-bg" id="contato">
+	<div class="footer-container">
+		<div class="row">
+			<div class="col-md-3 col-12">
+				<div class="widget mb-md-5 mb-0">
+					<div class="logo mb-4">
+						<img src="{% static 'images/logo-fullwhite.png' %}" alt="" class="img-fluid">
+					</div>
+					<p>Consultoria e Treinamento de Perfuração <br>
+
+						Direcional Horizontal por Método Não Destrutivo.</p>
+				</div>
+			</div>
+			<div class="col-md-3 col-6 d-flex mt-md-0 mt-2 justify-content-center">
+				<div class="">
+					<h4 style="color: #fff">Localização</h4>
+					<p>
+						Rua Luiza M Hanser 308 
+						<br>Sorocaba, SP 
+						<br>CEP 18046-166 
+					</p>
+					<a href="tel:+551532021233" style="color: #fff; padding-bottom: 20px;">(15) 3202 1233 Administrativo </a><br>
+					<a href="tel:+5511975464257" style="color: #fff; padding-bottom: 20px;">(11) 97546 4257 Consultoria </a><br>
+					<a href="tel:+5511940661233" style="color: #fff; padding-bottom: 20px;">(11) 940661233 Whatsapp </a>
+					<a href="mailto:profissionalmnd@gmail.com" style="color: #fff; padding-bottom: 10px;" target="_blank">profissionalmnd@gmail.com</a>
+				</div>
+			</div>
+			<div class="col-md-3 col-6 navegacao  mt-md-0 mt-2">
+				<h4 style="color: #fff">Navegação</h4>
+				<a href="{% url 'index'%}#time">Quem somos</a><br>
+				<a href="{% url 'index'%}#servicos">Serviços</a><br>
+				<a href="{% url 'profissionais'%}">Nossos Instrutores</a><br>
+				<a href="{% url 'index'%}#treinamentos">Agenda de Treinamento</a><br>
+				<a href="{% url 'alunos'%}">Alunos Certificados</a><br>
+				<a href="{% url 'index'%}#museu">Museu Do HDD</a><br>
+				<a href="{% url 'index'%}#contato">Contato</a><br>
+			</div>
+			<div class="col-md-3 col-12 mb-md-0 mb-2">
+				<div class="col-12">
+					<h4 style="color: #fff">Associada à:</h4>
+				</div>
+				<div class="row col-12 justify-content-center">
+					<div class="col-6 mt-3 d-flex justify-content-center">
+						<img src="{% static 'images/abratt.png' %}" alt="" style="height: auto; width: 100%;">
+					</div>
+					<div class="col-6 mt-3" style="background: #fff; border-radius: 10px;">
+						<img src="{% static 'images/istt.png' %}" alt="" style="height: auto; width: 100%; padding-top: 15px;">
+					</div>
+					<!-- <div class="col-6 mt-3">
+						<img src="{% static 'images/mndBrasil.jpeg' %}" alt="" style="height: 80px;">
+					</div> -->
+				</div>
+			</div>
+		</div>
+
+		<div class="footer-btm py-4 mt-md-5 mt-0">
+			<div class="row align-items-center justify-content-between">
+				<div class="col-6">
+					<div class="copyright">
+						&copy; 2023, SERVMACHINE . Todos os direitos reservados.
+					</div>
+				</div>
+				<div class="col-6">
+					<div class="subscribe-form text-lg-right mt-5 mt-lg-0">
+						<a href="https://www.instagram.com/servmachine/" target="_blank" style="color: #fff"> <i class="fab fa-instagram"></i> </a>
+						<!-- <i class="fab fa-linkedin"></i>
+						<i class="fab fa-facebook"></i> -->
+					</div>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-lg-4">
+					<a class="backtop scroll-top-to" href="#top">
+						<i class="fas fa-chevron-up"></i>
+					</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</footer>
+<div class="containerWhatsApp">
+    <div class="controleWhats">
+    <a href="https://api.whatsapp.com/send?phone=5511940661233" type="button" class="btnOpenWhats" target="_blank"><i class="fab fa-whatsapp ps-2" aria-hidden="true"></i></a>
+    </div>
+</div>
+
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	<div class="modal-dialog modal-dialog-scrollable  modal-xl" role="document" >
+	  <div class="modal-content">
+		<div class="modal-header" style="border: none;">
+			<h5 class="modal-title">Visualizar Certificado</h5>
+			<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+				<span aria-hidden="true">&times;</span>
+			</button>
+		</div>
+		<div class="modal-body">
+            <p>Por favor digite o CPF do profissional sem pontuação para visualizar seu certificado.</p>
+            <form id="modalForm" method="POST" action="{% url 'visualizar_certificado' %}">
+                {% csrf_token %}
+                <input type="hidden" id="personId" name="personId" value="">
+                <div class="mb-3">
+                    <input type="text" class="form-control" id="cpf" name="cpf" placeholder="Ex: 111111111">
+                </div>
+                <button type="submit" class="btn btn-primary">Visualizar</button>
+            </form>
+		</div>
+	  </div>
+	</div>
+</div>
+<div class="modal fade" id="myModalEn" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	<div class="modal-dialog modal-dialog-scrollable  modal-xl" role="document" >
+	  <div class="modal-content">
+		<div class="modal-header" style="border: none;">
+			<h5 class="modal-title">Visualizar Certificado</h5>
+			<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+				<span aria-hidden="true">&times;</span>
+			</button>
+		</div>
+		<div class="modal-body">
+            <p>Por favor digite o CPF do profissional sem pontuação para visualizar seu certificado.</p>
+            <form id="modalFormEn" method="POST" action="{% url 'visualizar_certificado_en' %}">
+                {% csrf_token %}
+                <input type="hidden" id="personIdEn" name="personIdEn" value="">
+                <div class="mb-3">
+                    <input type="text" class="form-control" id="cpf" name="cpf" placeholder="Ex: 111111111">
+                </div>
+                <button type="submit" class="btn btn-primary">Visualizar</button>
+            </form>
+		</div>
+	  </div>
+	</div>
+</div>
+
+    <script src="{% static 'plugins/jquery/jquery.js' %}"></script>
+    <script src="{% static 'plugins/bootstrap/bootstrap.min.js' %}"></script>
+    <script src="{% static 'plugins/slick-carousel/slick/slick.min.js' %}"></script>
+    <script src="{% static 'plugins/shuffle/shuffle.min.js' %}"></script>
+
+    <!-- Google Map -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAkeLMlsiwzp6b3Gnaxd86lvakimwGA6UA"></script>
+    <script src="{% static 'plugins/google-map/gmap.js' %}"></script>
+    
+    <script src="{% static 'js/script.js' %}"></script>
+
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+	<script>
+function capitalizeFirstLetter(word) {
+    if (typeof word !== 'string' || word.length === 0) {
+        return word;
+    }
+    word = word.toLowerCase();
+    return word.charAt(0).toUpperCase() + word.slice(1);
+}
+
+
+
+window.onload = function () {
+    showInput();
+};
+var cont = 0;
+var contPesquisa = 0;
+async function showInput(nome, especialidade) {
+    var nextPageUrl = 'https://servmachine.com.br/api/professionals/?is_old=true';
+    var allTrainings = [];
+
+    try {
+        $(".loading").css("display", "flex");
+        cont = 0;
+        contPesquisa = 0;
+        while (nextPageUrl) {
+            const response = await fetch(nextPageUrl);
+            if (!response.ok) {
+                throw new Error(`Erro na requisição: ${response.status}`);
+            }
+			// console.log('funciona')
+
+            const data = await response.json();
+            const nomeform = nome ? capitalizeFirstLetter(nome)  : null;
+
+            if (Array.isArray(data.results)) {
+                data.results.forEach(training => {
+                    if (training.is_old === true) {
+                        const nomeMatch = nomeform ? training.name === nomeform : true;
+                        const especialidadeMatch = especialidade ? training.specialty === especialidade : true;
+
+                        if (nomeMatch && especialidadeMatch) {
+                            allTrainings.push(training);
+                        }
+                        else{
+                            contPesquisa++;
+                        }
+                        cont++;
+                    }
+                });
+            } else {
+                console.error("A estrutura da resposta não é a esperada.");
+            }
+
+            nextPageUrl = data.next;
+        }
+
+        console.log(cont, contPesquisa);
+
+        cont = cont - contPesquisa;
+
+        displayTrainings(allTrainings, 1);
+
+        console.log('cont', cont);
+
+        var todos = document.getElementById('todos');
+        todos.innerHTML = `<strong>${cont} Alunos encontrados</strong>`
+
+        $(".loading").css("display", "none");
+
+    } catch (error) {
+        console.error("Erro ao buscar os dados:", error);
+    }
+}
+
+
+
+
+
+function displayTrainings(trainings, page) {
+    var trainingsContainer = document.querySelector('#trainings');
+    trainingsContainer.innerHTML = '';
+
+    var startIndex = (page - 1) * 9;
+    var endIndex = startIndex + 9;
+    var pageTrainings = trainings.slice(startIndex, endIndex);
+
+    pageTrainings.forEach(training => {
+        var newDiv = document.createElement("div");
+        newDiv.classList.add("col-sm-6", "col-12", "d-flex", "mt-4");
+
+        let titulo;
+
+        switch (training.specialty) {
+            case 'NC':
+                titulo = 'Não Cadastrado';
+                break;
+            case 'OP':
+                titulo = 'Operador de Máquina Perfuratriz';
+                break;
+            case 'NA':
+                titulo = 'Navegador de Perfuração Direcional';
+                break;
+            case 'MP':
+                titulo = 'Mapeador de Interferência';
+                break;
+            case 'IN':
+                titulo = 'Inspetor de Perfuração Direcional';
+                break;
+            case 'SD':
+                titulo = 'Sondador';
+                break;
+            case 'OU':
+                titulo = 'Outro';
+                break;
+            default:
+                titulo = 'Especialidade Desconhecida';
+        }
+
+        let registro;
+        let validado;
+
+        let date = new Date(training.last_course.expiration_date);
+
+        let day = date.getDate();
+        let month = date.getMonth() + 1;
+        let year = date.getFullYear();
+        day = day < 10 ? '0' + day : day;
+        month = month < 10 ? '0' + month : month;
+
+        let formattedDate = `${day}/${month}/${year}`;
+
+        if(training.last_course.valid){
+            registro = 'Válido';
+        }
+        else{
+            registro = 'Inválido';
+        }
+
+        if(training.last_course.certificate_valid){
+            registro = 'Válido';
+            validado = `<p style="color: rgb(76 175 80); font-weight: 600;">Registro ${registro}</p>
+                <p class="d-flex">
+                    <i class="fas fa-calendar-alt mt-1 pr-2"></i>
+                    Válido até: ${formattedDate}
+                </p>
+				<div class="d-md-flex mt-4">
+                    <button class="d-flex justify-content-center openModalBtn" style="background: #3575E2; color: #fff; border: none; border-radius: 10px;" data-id="${training.id}">
+                        <img class="mt-1" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABUAAAAVCAYAAACpF6WWAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAACjSURBVHgB7ZPRDcIwDETPiAE6QjaBEdgARmCDMgqbMEJHgBG6gbkIf1RWQhz4gz7JsmSdn6KmAf4aiYRUdWDLNYvI3MpvEOPAultvEpV28SNSXtC+Z96UcvHMdmMf3Xy0+RG95N+INemLUh/wCU6sXwvfnLhPyIVky5eC+OqFOWf5tJxvEcCe5glBatKdP20thwiFi2kxeYdUxAlB+GkeWFnyBH7FxH4M3ivnAAAAAElFTkSuQmCC" alt="download-icon">
+                        <p class="ml-2 mb-0" style="color: #fff">Visualizar Certificado</p>
+                        <img class="ml-2 mt-1" width="20" height="20" src="https://servmachine.com.br/assets/Brazil-FN_zDUga.png" alt="brazil-icon">
+                    </button>
+                    <button class="ml-2 mt-sm-0 mt-3 bg-[#fff] d-flex justify-content-center openModalBtnEn" style="border: none; border-radius: 10px;" data-id="${training.id}">
+                        <img class="mt-1" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAVCAYAAABG1c6oAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAADhSURBVHgB7ZM/DoIwFMa/AoMjR4B4CjfdkIkbqDcAHBzVA2i8gRwBF+KGm6MewMUbMBpjqLXBRP6oT+Ni9Jc8+Pr6+uU1bYE/lViuIYOARimCosaZMp+W4sN8s6E1MGRQ8xmsMuu4Oo7qRupUa0E5xSUdTUx6h+EsQcrHQhnSgHFdaD0zMwA590KHVyy/C4XN80neQzQN7i1R8Yjdeot6Yw/GHIpZmbYXwO5zVHVqiyhyqbX93A5oL2VJ76ra0PZGeJOCoRKKT0f8h6DC2eJ2WD7lpriDNeigcECClbhiv80ZxYA7Rz1oLEUAAAAASUVORK5CYII=" alt="download-icon">
+                        <p class="ml-2 mb-0">View Certificate</p>
+                        <img class="ml-2 mt-1" width="20" height="20" src="https://servmachine.com.br/assets/Us-N7u4botT.png" alt="us-icon">
+                    </button>
+                </div>`;
+
+        }
+        else{
+            registro = 'Inválido';
+            validado = `<p style="color: yellow; font-weight: 600;">Curso em Andamento</p>`
+        }
+
+        
+
+        newDiv.innerHTML = `
+            <img src="${training.picture}" alt="Profile Image" class="imagem" style="height: 230px; width: 160px; object-fit: cover;">
+            <div class="conteudo">
+                <h5>${titulo}</h5>
+                <h4>${training.name} ${training.surname}</h4>
+                ${validado}
+            </div>
+        `;
+
+        trainingsContainer.appendChild(newDiv);
+    });
+
+    // Atualize a navegação da página
+    updatePagination(trainings, page);
+}
+function updatePagination(trainings, currentPage) {
+    var paginationContainer = document.querySelector('#pagination');
+    paginationContainer.innerHTML = ''; // Limpa o conteúdo atual
+
+    var totalPages = Math.ceil(trainings.length / 9);
+    var pagesToShow = 4; // Número de botões de página a mostrar por vez
+
+    var ul = document.createElement('ul');
+    ul.classList.add('pagination');
+
+    // Botão "Anterior"
+    var prevLi = document.createElement('li');
+    prevLi.classList.add('page-item');
+    if (currentPage === 1) {
+        prevLi.classList.add('disabled');
+    }
+    var prevButton = document.createElement('button');
+    prevButton.textContent = 'Anterior';
+    prevButton.classList.add('page-link');
+    prevButton.addEventListener('click', function() {
+        if (currentPage > 1) {
+            displayTrainings(trainings, currentPage - 1);
+        }
+    });
+    prevLi.appendChild(prevButton);
+    ul.appendChild(prevLi);
+
+    // Determinar intervalo de páginas a serem mostradas
+    var startPage = Math.max(1, currentPage - Math.floor(pagesToShow / 2));
+    var endPage = Math.min(totalPages, startPage + pagesToShow - 1);
+
+    if (endPage - startPage < pagesToShow - 1) {
+        startPage = Math.max(1, endPage - pagesToShow + 1);
+    }
+
+    // Páginas de Navegação
+    for (let i = startPage; i <= endPage; i++) {
+        var li = document.createElement('li');
+        li.classList.add('page-item');
+        if (i === currentPage) {
+            li.classList.add('active');
+        }
+
+        var pageButton = document.createElement('button');
+        pageButton.textContent = i;
+        pageButton.classList.add('page-link');
+        pageButton.addEventListener('click', function() {
+            displayTrainings(trainings, i);
+        });
+
+        li.appendChild(pageButton);
+        ul.appendChild(li);
+    }
+
+    // Botão "Próximo"
+    var nextLi = document.createElement('li');
+    nextLi.classList.add('page-item');
+    if (currentPage === totalPages) {
+        nextLi.classList.add('disabled');
+    }
+    var nextButton = document.createElement('button');
+    nextButton.textContent = 'Próximo';
+    nextButton.classList.add('page-link');
+    nextButton.addEventListener('click', function() {
+        if (currentPage < totalPages) {
+            displayTrainings(trainings, currentPage + 1);
+        }
+    });
+    nextLi.appendChild(nextButton);
+    ul.appendChild(nextLi);
+
+    paginationContainer.appendChild(ul);
+}
+document.addEventListener('DOMContentLoaded', function() {
+    const form = document.getElementById('formPesquisa');
+
+    form.addEventListener('submit', function(event) {
+        event.preventDefault(); // Evita o envio padrão do formulário
+
+        // Obtém os valores dos campos
+        const nome = form.nome.value;
+        const especialidade = form.especialidade.value;
+
+        console.log(especialidade)
+        // Chama a função showinput com os valores dos campos
+        showInput(nome, especialidade);
+    });
+});
+$("body").on('click', '.openModalBtnEn', function (e) {
+    e.preventDefault();
+    var personIdInput = document.getElementById('personIdEn');
+    var myModalEn = new bootstrap.Modal(document.getElementById('myModalEn'), {
+                keyboard: false
+            });
+        console.log('aaaa');
+        var personId = this.getAttribute('data-id');
+        console.log(personId)
+        personIdInput.value = personId;
+        myModalEn.show();
+})
+$("body").on('click', '.openModalBtn', function (e) {
+    e.preventDefault();
+    var personIdInput = document.getElementById('personId');
+    var myModal = new bootstrap.Modal(document.getElementById('myModal'), {
+                keyboard: false
+            });
+        console.log('aaaa');
+        var personId = this.getAttribute('data-id');
+        console.log(personId)
+        personIdInput.value = personId;
+        myModal.show();
+})
+$(document).ready(function() {
+    // Seleciona o modal
+    var modal = $('#myModal');
+    var modalEn = $('#myModalEn');
+
+    // Seleciona o botão de fechar
+    var span = modal.find('.close');
+    var spanEn = modalEn.find('.close');
+
+    // Quando o usuário clicar no botão de fechar
+    span.on('click', function() {
+        // Fecha o modal
+        modal.hide();
+        
+        // Reseta o formulário
+        $('#modalForm')[0].reset();
+    });
+    spanEn.on('click', function() {
+        // Fecha o modal
+        modalEn.hide();
+        
+        // Reseta o formulário
+        $('#modalFormEn')[0].reset();
+    });
+
+    // Opcional: Quando o usuário clicar fora do modal, fechar o modal
+    $(window).on('click', function(event) {
+        if ($(event.target).is(modal)) {
+            modal.hide();
+            $('#modalForm')[0].reset();
+        }
+        if ($(event.target).is(modalEn)) {
+            modalEn.hide();
+            $('#modalFormEn')[0].reset();
+        }
+    });
+});
+
+	</script>
+</body>
+</html>

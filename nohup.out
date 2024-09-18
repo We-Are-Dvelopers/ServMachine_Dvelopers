@@ -1,0 +1,242 @@
+CommandError: "0.0.0.0:7777 " is not a valid port number or address:port pair.
+CommandError: "0.0.0.0:7777 " is not a valid port number or address:port pair.
+CommandError: "0.0.0.0:7777 " is not a valid port number or address:port pair.
+CommandError: "0.0.0.0:7777 " is not a valid port number or address:port pair.
+python3: can't open file '/home/ubuntu/ServMachine/manger.py': [Errno 2] No such file or directory
+
+Type 'manage.py help <subcommand>' for help on a specific subcommand.
+
+Available subcommands:
+
+[auth]
+    changepassword
+    createsuperuser
+
+[contenttypes]
+    remove_stale_contenttypes
+
+[django]
+    check
+    compilemessages
+    createcachetable
+    dbshell
+    diffsettings
+    dumpdata
+    flush
+    inspectdb
+    loaddata
+    makemessages
+    makemigrations
+    migrate
+    optimizemigration
+    sendtestemail
+    shell
+    showmigrations
+    sqlflush
+    sqlmigrate
+    sqlsequencereset
+    squashmigrations
+    startapp
+    startproject
+    test
+    testserver
+
+[sessions]
+    clearsessions
+
+[staticfiles]
+    collectstatic
+    findstatic
+    runserver
+CommandError: "0.0.0.0:7777 " is not a valid port number or address:port pair.
+CommandError: "0.0.0.0:7777 " is not a valid port number or address:port pair.
+[2024-07-11 16:12:14 -0300] [2148] [INFO] Starting gunicorn 20.1.0
+[2024-07-11 16:12:14 -0300] [2148] [INFO] Listening at: http://127.0.0.1:8001 (2148)
+[2024-07-11 16:12:14 -0300] [2148] [INFO] Using worker: sync
+[2024-07-11 16:12:14 -0300] [2149] [INFO] Booting worker with pid: 2149
+[2024-07-11 16:12:14 -0300] [2149] [ERROR] Exception in worker process
+Traceback (most recent call last):
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/gunicorn/arbiter.py", line 589, in spawn_worker
+    worker.init_process()
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/gunicorn/workers/base.py", line 134, in init_process
+    self.load_wsgi()
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/gunicorn/workers/base.py", line 146, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/gunicorn/app/base.py", line 67, in wsgi
+    self.callable = self.load()
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/gunicorn/app/wsgiapp.py", line 58, in load
+    return self.load_wsgiapp()
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/gunicorn/app/wsgiapp.py", line 48, in load_wsgiapp
+    return util.import_app(self.app_uri)
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/gunicorn/util.py", line 359, in import_app
+    mod = importlib.import_module(module)
+  File "/usr/lib/python3.10/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1004, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'ServMachine'
+[2024-07-11 16:12:14 -0300] [2149] [INFO] Worker exiting (pid: 2149)
+[2024-07-11 16:12:14 -0300] [2148] [INFO] Shutting down: Master
+[2024-07-11 16:12:14 -0300] [2148] [INFO] Reason: Worker failed to boot.
+[2024-07-11 16:13:17 -0300] [2151] [INFO] Starting gunicorn 20.1.0
+[2024-07-11 16:13:17 -0300] [2151] [INFO] Listening at: http://127.0.0.1:8001 (2151)
+[2024-07-11 16:13:17 -0300] [2151] [INFO] Using worker: sync
+[2024-07-11 16:13:17 -0300] [2152] [INFO] Booting worker with pid: 2152
+[2024-07-11 16:13:17 -0300] [2152] [ERROR] Exception in worker process
+Traceback (most recent call last):
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/gunicorn/arbiter.py", line 589, in spawn_worker
+    worker.init_process()
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/gunicorn/workers/base.py", line 134, in init_process
+    self.load_wsgi()
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/gunicorn/workers/base.py", line 146, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/gunicorn/app/base.py", line 67, in wsgi
+    self.callable = self.load()
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/gunicorn/app/wsgiapp.py", line 58, in load
+    return self.load_wsgiapp()
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/gunicorn/app/wsgiapp.py", line 48, in load_wsgiapp
+    return util.import_app(self.app_uri)
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/gunicorn/util.py", line 359, in import_app
+    mod = importlib.import_module(module)
+  File "/usr/lib/python3.10/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1004, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'ServMachine'
+[2024-07-11 16:13:17 -0300] [2152] [INFO] Worker exiting (pid: 2152)
+[2024-07-11 16:13:17 -0300] [2151] [INFO] Shutting down: Master
+[2024-07-11 16:13:17 -0300] [2151] [INFO] Reason: Worker failed to boot.
+[2024-07-11 16:17:14 -0300] [2168] [INFO] Starting gunicorn 20.1.0
+[2024-07-11 16:17:14 -0300] [2168] [INFO] Listening at: http://127.0.0.1:8001 (2168)
+[2024-07-11 16:17:14 -0300] [2168] [INFO] Using worker: sync
+[2024-07-11 16:17:14 -0300] [2169] [INFO] Booting worker with pid: 2169
+[2024-07-11 16:17:14 -0300] [2169] [ERROR] Exception in worker process
+Traceback (most recent call last):
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/gunicorn/arbiter.py", line 589, in spawn_worker
+    worker.init_process()
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/gunicorn/workers/base.py", line 134, in init_process
+    self.load_wsgi()
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/gunicorn/workers/base.py", line 146, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/gunicorn/app/base.py", line 67, in wsgi
+    self.callable = self.load()
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/gunicorn/app/wsgiapp.py", line 58, in load
+    return self.load_wsgiapp()
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/gunicorn/app/wsgiapp.py", line 48, in load_wsgiapp
+    return util.import_app(self.app_uri)
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/gunicorn/util.py", line 359, in import_app
+    mod = importlib.import_module(module)
+  File "/usr/lib/python3.10/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 992, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1004, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'ServMachine'
+[2024-07-11 16:17:14 -0300] [2169] [INFO] Worker exiting (pid: 2169)
+[2024-07-11 16:17:14 -0300] [2168] [INFO] Shutting down: Master
+[2024-07-11 16:17:14 -0300] [2168] [INFO] Reason: Worker failed to boot.
+[2024-07-11 16:59:56 -0300] [2449] [INFO] Starting gunicorn 20.1.0
+[2024-07-11 16:59:56 -0300] [2449] [INFO] Listening at: http://127.0.0.1:8001 (2449)
+[2024-07-11 16:59:56 -0300] [2449] [INFO] Using worker: sync
+[2024-07-11 16:59:56 -0300] [2450] [INFO] Booting worker with pid: 2450
+[2024-07-11 16:59:56 -0300] [2450] [ERROR] Exception in worker process
+Traceback (most recent call last):
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/gunicorn/arbiter.py", line 589, in spawn_worker
+    worker.init_process()
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/gunicorn/workers/base.py", line 134, in init_process
+    self.load_wsgi()
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/gunicorn/workers/base.py", line 146, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/gunicorn/app/base.py", line 67, in wsgi
+    self.callable = self.load()
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/gunicorn/app/wsgiapp.py", line 58, in load
+    return self.load_wsgiapp()
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/gunicorn/app/wsgiapp.py", line 48, in load_wsgiapp
+    return util.import_app(self.app_uri)
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/gunicorn/util.py", line 359, in import_app
+    mod = importlib.import_module(module)
+  File "/usr/lib/python3.10/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 992, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1004, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'ServMachine'
+[2024-07-11 16:59:56 -0300] [2450] [INFO] Worker exiting (pid: 2450)
+[2024-07-11 16:59:56 -0300] [2449] [INFO] Shutting down: Master
+[2024-07-11 16:59:56 -0300] [2449] [INFO] Reason: Worker failed to boot.
+[2024-07-11 17:00:26 -0300] [2451] [INFO] Starting gunicorn 20.1.0
+[2024-07-11 17:00:26 -0300] [2451] [INFO] Listening at: http://127.0.0.1:8001 (2451)
+[2024-07-11 17:00:26 -0300] [2451] [INFO] Using worker: sync
+[2024-07-11 17:00:26 -0300] [2452] [INFO] Booting worker with pid: 2452
+[2024-07-11 17:00:26 -0300] [2452] [ERROR] Exception in worker process
+Traceback (most recent call last):
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/gunicorn/arbiter.py", line 589, in spawn_worker
+    worker.init_process()
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/gunicorn/workers/base.py", line 134, in init_process
+    self.load_wsgi()
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/gunicorn/workers/base.py", line 146, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/gunicorn/app/base.py", line 67, in wsgi
+    self.callable = self.load()
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/gunicorn/app/wsgiapp.py", line 58, in load
+    return self.load_wsgiapp()
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/gunicorn/app/wsgiapp.py", line 48, in load_wsgiapp
+    return util.import_app(self.app_uri)
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/gunicorn/util.py", line 359, in import_app
+    mod = importlib.import_module(module)
+  File "/usr/lib/python3.10/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 992, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1004, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'ServMachine'
+[2024-07-11 17:00:26 -0300] [2452] [INFO] Worker exiting (pid: 2452)
+[2024-07-11 17:00:26 -0300] [2451] [INFO] Shutting down: Master
+[2024-07-11 17:00:26 -0300] [2451] [INFO] Reason: Worker failed to boot.
+[2024-07-11 17:07:32 -0300] [2504] [INFO] Starting gunicorn 20.1.0
+[2024-07-11 17:07:32 -0300] [2504] [INFO] Listening at: http://0.0.0.0:8001 (2504)
+[2024-07-11 17:07:32 -0300] [2504] [INFO] Using worker: sync
+[2024-07-11 17:07:32 -0300] [2505] [INFO] Booting worker with pid: 2505
+[2024-07-11 17:07:32 -0300] [2505] [ERROR] Exception in worker process
+Traceback (most recent call last):
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/gunicorn/arbiter.py", line 589, in spawn_worker
+    worker.init_process()
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/gunicorn/workers/base.py", line 134, in init_process
+    self.load_wsgi()
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/gunicorn/workers/base.py", line 146, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/gunicorn/app/base.py", line 67, in wsgi
+    self.callable = self.load()
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/gunicorn/app/wsgiapp.py", line 58, in load
+    return self.load_wsgiapp()
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/gunicorn/app/wsgiapp.py", line 48, in load_wsgiapp
+    return util.import_app(self.app_uri)
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/gunicorn/util.py", line 359, in import_app
+    mod = importlib.import_module(module)
+  File "/usr/lib/python3.10/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 992, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1004, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'ServMachine'
+[2024-07-11 17:07:32 -0300] [2505] [INFO] Worker exiting (pid: 2505)
+[2024-07-11 17:07:32 -0300] [2504] [INFO] Shutting down: Master
+[2024-07-11 17:07:32 -0300] [2504] [INFO] Reason: Worker failed to boot.

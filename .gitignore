@@ -1,0 +1,34 @@
+# Ignorar a pasta do ambiente virtual
+venv/
+static/
+
+# Ignorar arquivos de cache do Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Ignorar arquivos de configuração do IDE
+.vscode/
+.idea/
+*.suo
+*.user
+*.userosscache
+*.sln
+*.swp
+
+# Ignorar arquivos de log
+*.log
+
+# Ignorar arquivos de banco de dados
+*.sqlite3
+*.db
+
+# Ignorar arquivos de dependências
+*.egg
+*.egg-info
+dist/
+build/
+*.pyc
+
+.git_bkp
