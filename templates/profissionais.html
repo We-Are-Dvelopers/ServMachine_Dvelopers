@@ -273,8 +273,7 @@ async function showInput(nome, especialidade) {
                 throw new Error(`Erro na requisição: ${response.status}`);
             }
 
-			console.log('aass')
-
+			
             const data = await response.json();
             const nomeform = nome ? capitalizeFirstLetter(nome) : null;
 
@@ -330,7 +329,7 @@ function displayTrainings(trainings, page) {
                 titulo = 'Navegador de Perfuração Direcional';
                 break;
             case 'MP':
-                titulo = 'Mapeador de Interferência';
+                titulo = 'Mapeador de Interferência Subterrânea';
                 break;
             case 'IN':
                 titulo = 'Inspetor de Perfuração Direcional';

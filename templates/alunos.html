@@ -503,10 +503,6 @@ async function showInput(nome, especialidade) {
     }
 }
 
-
-
-
-
 function displayTrainings(trainings, page) {
     var trainingsContainer = document.querySelector('#trainings');
     trainingsContainer.innerHTML = '';
@@ -516,6 +512,7 @@ function displayTrainings(trainings, page) {
     var pageTrainings = trainings.slice(startIndex, endIndex);
 
     pageTrainings.forEach(training => {
+        console.log('training: ', training)
         var newDiv = document.createElement("div");
         newDiv.classList.add("col-sm-6", "col-12", "d-flex", "mt-4");
 
@@ -532,7 +529,7 @@ function displayTrainings(trainings, page) {
                 titulo = 'Navegador de Perfuração Direcional';
                 break;
             case 'MP':
-                titulo = 'Mapeador de Interferência';
+                titulo = 'Mapeador de Interferência Subterrânea';
                 break;
             case 'IN':
                 titulo = 'Inspetor de Perfuração Direcional';
@@ -547,34 +544,54 @@ function displayTrainings(trainings, page) {
                 titulo = 'Especialidade Desconhecida';
         }
 
+        // Ajusta para o feminino se necessário
+        if (training.gender) {
+            switch (training.specialty) {
+                case 'NC':
+                    titulo = titulo.replace('Cadastrado', 'Cadastrada');
+                    break;
+                case 'OP':
+                    titulo = titulo.replace('Operador', 'Operadora');
+                    break;
+                case 'NA':
+                    titulo = titulo.replace('Navegador', 'Navegadora');
+                    break;
+                case 'MP':
+                    titulo = titulo.replace('Mapeador', 'Mapeadora');
+                    break;
+                case 'IN':
+                    titulo = titulo.replace('Inspetor', 'Inspetora');
+                    break;
+                case 'SD':
+                    titulo = titulo.replace('Sondador', 'Sondadora');
+                    break;
+                case 'OU':
+                    titulo = titulo.replace('Outro', 'Outra');
+                    break;
+            }
+        }
+
         let registro;
         let validado;
 
         let date = new Date(training.last_course.expiration_date);
+        let formattedDate = `${date.getDate().toString().padStart(2, '0')}/${(date.getMonth() + 1).toString().padStart(2, '0')}/${date.getFullYear()}`;
 
-        let day = date.getDate();
-        let month = date.getMonth() + 1;
-        let year = date.getFullYear();
-        day = day < 10 ? '0' + day : day;
-        month = month < 10 ? '0' + month : month;
+        const today = new Date();
+        today.setHours(0, 0, 0, 0);
+        
+        //verifica se o certificado está expirado
+        const isExpired = date < today;
 
-        let formattedDate = `${day}/${month}/${year}`;
-
-        if(training.last_course.valid){
-            registro = 'Válido';
-        }
-        else{
-            registro = 'Inválido';
-        }
-
-        if(training.last_course.certificate_valid){
+        if (training.last_course.certificate_valid && !isExpired) {
+            //certificado válido e não expirado
             registro = 'Válido';
             validado = `<p style="color: rgb(76 175 80); font-weight: 600;">Registro ${registro}</p>
                 <p class="d-flex">
                     <i class="fas fa-calendar-alt mt-1 pr-2"></i>
                     Válido até: ${formattedDate}
                 </p>
-				<div class="d-md-flex mt-4">
+                <div class="d-md-flex mt-4">
                     <button class="d-flex justify-content-center openModalBtn" style="background: #3575E2; color: #fff; border: none; border-radius: 10px;" data-id="${training.id}">
                         <img class="mt-1" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABUAAAAVCAYAAACpF6WWAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAACjSURBVHgB7ZPRDcIwDETPiAE6QjaBEdgARmCDMgqbMEJHgBG6gbkIf1RWQhz4gz7JsmSdn6KmAf4aiYRUdWDLNYvI3MpvEOPAultvEpV28SNSXtC+Z96UcvHMdmMf3Xy0+RG95N+INemLUh/wCU6sXwvfnLhPyIVky5eC+OqFOWf5tJxvEcCe5glBatKdP20thwiFi2kxeYdUxAlB+GkeWFnyBH7FxH4M3ivnAAAAAElFTkSuQmCC" alt="download-icon">
                         <p class="ml-2 mb-0" style="color: #fff">Visualizar Certificado</p>
@@ -586,14 +603,19 @@ function displayTrainings(trainings, page) {
                         <img class="ml-2 mt-1" width="20" height="20" src="https://servmachine.com.br/assets/Us-N7u4botT.png" alt="us-icon">
                     </button>
                 </div>`;
-
-        }
-        else{
+        } else if (isExpired) {
+            //certificado expirado
             registro = 'Inválido';
-            validado = `<p style="color: yellow; font-weight: 600;">Curso em Andamento</p>`
+            validado = `<p style="color: red; font-weight: 600;">Registro Expirado</p>
+                <p class="d-flex">
+                    <i class="fas fa-calendar-alt mt-1 pr-2"></i>
+                    Expirou em: ${formattedDate}
+                </p>`;
+        } else {
+            //curso em andamento
+            registro = 'Inválido';
+            validado = `<p style="color: yellow; font-weight: 600;">Curso em Andamento</p>`;
         }
-
-        
 
         newDiv.innerHTML = `
             <img src="${training.picture}" alt="Profile Image" class="imagem" style="height: 230px; width: 160px; object-fit: cover;">
@@ -610,6 +632,7 @@ function displayTrainings(trainings, page) {
     // Atualize a navegação da página
     updatePagination(trainings, page);
 }
+
 function updatePagination(trainings, currentPage) {
     var paginationContainer = document.querySelector('#pagination');
     paginationContainer.innerHTML = ''; // Limpa o conteúdo atual
