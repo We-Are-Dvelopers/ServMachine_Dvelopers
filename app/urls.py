@@ -15,7 +15,7 @@ urlpatterns = [
     path('alunos', views.alunos, name='alunos'),
     path('visualizar_certificado', views.visualizar_certificado, name='visualizar_certificado'),
     path('visualizar_certificado_en', views.visualizar_certificado_en, name='visualizar_certificado_en'),
-    path('api/alunos/', views.api_professionals_cache, name='api_alunos'),
+    path('proxy/alunos/', views.api_professionals_cache, name='api_alunos'),
     re_path(r'^.*$', views.index, name='catch_all'),
 ]
 

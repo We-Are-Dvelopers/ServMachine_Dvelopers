@@ -757,7 +757,7 @@
           if (currentNome) params.set('nome', currentNome);
           if (currentEspecialidade) params.set('especialidade', currentEspecialidade);
 
-          const response = await fetch(`/api/alunos/?${params.toString()}`);
+          const response = await fetch(`/proxy/alunos/?${params.toString()}`);
           if (!response.ok) {
             throw new Error(`Erro na requisição: ${response.status}`);
           }
