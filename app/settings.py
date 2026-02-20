@@ -24,7 +24,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-a0xkai6i%-+b%t82_*%x0nqjsd14#h+i_%a^45hnrq!#^iru0q'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['*']
 # ALLOWED_HOSTS = []
@@ -88,6 +88,23 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
+
+# Cache configuration for API proxy
+CACHES = {
+    'default': {
+        'BACKEND': 'django.core.cache.backends.locmem.LocMemCache',
+        'LOCATION': 'professionals-cache',
+        'TIMEOUT': 300,  # 5 minutos
+    }
+}
+
+# URL base da API externa de profissionais
+# Em desenvolvimento (DEBUG=True): API local na porta 8000
+# Em produção (DEBUG=False): API no domínio servmachine.com.br
+if DEBUG:
+    EXTERNAL_API_BASE_URL = 'http://127.0.0.1:8000'
+else:
+    EXTERNAL_API_BASE_URL = 'https://servmachine.com.br'
 
 
 # Password validation

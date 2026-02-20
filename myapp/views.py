@@ -5,6 +5,11 @@ from django.http import HttpResponseRedirect
 from datetime import datetime
 from django.shortcuts import render
 import pytz
+import json
+import math
+from urllib.request import urlopen, Request
+from urllib.error import URLError, HTTPError
+from django.core.cache import cache
 
 def index(request):
     try:
@@ -160,6 +165,87 @@ def alunos(request):
 
 def old_profissionais(request):
     return render(request, 'old_profissionais.html')
+
+
+def _fetch_all_professionals():
+    """Busca todos os profissionais da API externa com cache de 5 minutos."""
+    from django.conf import settings
+
+    CACHE_KEY = 'all_professionals_data'
+    cached = cache.get(CACHE_KEY)
+    if cached is not None:
+        return cached
+
+    all_professionals = []
+    next_url = f'{settings.EXTERNAL_API_BASE_URL}/api/professionals/?is_old=false'
+
+    while next_url:
+        req = Request(next_url)
+        try:
+            with urlopen(req, timeout=30) as response:
+                data = json.loads(response.read().decode('utf-8'))
+        except (URLError, HTTPError) as e:
+            raise Exception(f'Erro ao buscar dados da API externa: {e}')
+
+        if isinstance(data.get('results'), list):
+            for prof in data['results']:
+                if prof.get('is_old') is False:
+                    all_professionals.append(prof)
+
+        next_url = data.get('next')
+
+    # Cache por 5 minutos (300 segundos)
+    cache.set(CACHE_KEY, all_professionals, 300)
+    return all_professionals
+
+
+def api_professionals_cache(request):
+    """Proxy com cache para a API de profissionais.
+    Parâmetros GET:
+        - page (int): Página atual (default: 1)
+        - page_size (int): Itens por página (default: 9)
+        - nome (str): Filtrar por primeiro nome
+        - especialidade (str): Filtrar por código de especialidade (OP, NA, IN, etc)
+    """
+    try:
+        all_professionals = _fetch_all_professionals()
+    except Exception as e:
+        return JsonResponse({'error': str(e)}, status=502)
+
+    # Filtros
+    nome = request.GET.get('nome', '').strip()
+    especialidade = request.GET.get('especialidade', '').strip()
+
+    filtered = all_professionals
+    if nome:
+        nome_lower = nome.lower()
+        filtered = [p for p in filtered if p.get('name', '').lower().startswith(nome_lower)]
+    if especialidade:
+        filtered = [p for p in filtered if p.get('specialty') == especialidade]
+
+    # Paginação
+    try:
+        page = max(1, int(request.GET.get('page', 1)))
+    except (ValueError, TypeError):
+        page = 1
+    try:
+        page_size = min(50, max(1, int(request.GET.get('page_size', 9))))
+    except (ValueError, TypeError):
+        page_size = 9
+
+    total = len(filtered)
+    total_pages = math.ceil(total / page_size) if total > 0 else 1
+    start = (page - 1) * page_size
+    end = start + page_size
+    page_results = filtered[start:end]
+
+    return JsonResponse({
+        'results': page_results,
+        'count': total,
+        'page': page,
+        'page_size': page_size,
+        'total_pages': total_pages,
+    })
 
 
 from django.shortcuts import redirect
