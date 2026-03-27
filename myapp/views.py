@@ -21,7 +21,7 @@ def index(request):
                 "USER": "servmachinedjango",
                 "PASSWORD": "Marcelo1969#",
                 # "HOST": "3.14.245.219",
-                "HOST": "18.223.237.128",
+                "HOST": "localhost",
                 "PORT": 5432,
             }
         }
@@ -112,7 +112,7 @@ def homenagem(request, artigo_id):
                 "NAME": "servmachine",
                 "USER": "servmachinedjango",
                 "PASSWORD": "Marcelo1969#",
-                "HOST": "18.223.237.128",
+                "HOST": "localhost",
                 "PORT": 5432,
             }
         }
@@ -261,7 +261,7 @@ from django.shortcuts import redirect
 #                 "NAME": "servmachine",
 #                 "USER": "servmachinedjango",
 #                 "PASSWORD": "Marcelo1969#",
-#                 "HOST": "18.223.237.128",
+#                 "HOST": "localhost",
 #                 "PORT": 5432,
 #             }
 #         }
@@ -317,7 +317,7 @@ def visualizar_certificado(request):
                 "NAME": "servmachine",
                 "USER": "servmachinedjango",
                 "PASSWORD": "Marcelo1969#",
-                "HOST": "18.223.237.128",
+                "HOST": "localhost",
                 "PORT": 5432,
             }
         }
@@ -369,7 +369,7 @@ def visualizar_certificado(request):
 #                 "NAME": "servmachine",
 #                 "USER": "servmachinedjango",
 #                 "PASSWORD": "Marcelo1969#",
-#                 "HOST": "18.223.237.128",
+#                 "HOST": "localhost",
 #                 "PORT": 5432,
 #             }
 #         }
@@ -425,7 +425,7 @@ def visualizar_certificado_en(request):
                 "NAME": "servmachine",
                 "USER": "servmachinedjango",
                 "PASSWORD": "Marcelo1969#",
-                "HOST": "18.223.237.128",
+                "HOST": "localhost",
                 "PORT": 5432,
             }
         }
