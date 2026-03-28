@@ -60,6 +60,22 @@ p {
   background: #223a66;
 }
 
+/* Hamburger & Close Toggle Logic */
+.navbar-toggler {
+  position: relative;
+  z-index: 9999 !important;
+}
+.navbar-toggler .menu-icon-toggle {
+  pointer-events: none;
+}
+.navbar-toggler .menu-icon-toggle::before {
+  content: "\2630"; /* Hamburger ☰ */
+}
+.navbar-toggler[aria-expanded="true"] .menu-icon-toggle::before {
+  content: "\00d7"; /* Close X */
+  font-size: 34px;
+}
+
 input[type=email], input[type=password], input[type=text], input[type=tel] {
   box-shadow: none;
   height: 45px;
