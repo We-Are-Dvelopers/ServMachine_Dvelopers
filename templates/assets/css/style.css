@@ -69,10 +69,12 @@ p {
   pointer-events: none;
 }
 .navbar-toggler .menu-icon-toggle::before {
-  content: "\2630"; /* Hamburger ☰ */
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  content: "\f0c9"; /* Hamburger ☰ */
 }
 .navbar-toggler[aria-expanded="true"] .menu-icon-toggle::before {
-  content: "\00d7"; /* Close X */
+  content: "\f00d"; /* Close X */
   font-size: 34px;
 }
 
