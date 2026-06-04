@@ -205,7 +205,7 @@
               <a class="nav-link p-0 px-3" href="{% url 'index'%}#treinamentos">agenda de treinamento</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link p-0 px-3 active" href="{% url 'alunos'%}">alunos certificados</a>
+              <a class="nav-link p-0 px-3 active" href="{% url 'alunos'%}">profissionais certificados</a>
             </li>
             <li class="nav-item">
               <a class="nav-link p-0 px-3" href="{% url 'index'%}#museu">museu do HDD</a>
@@ -225,11 +225,11 @@
         <div class="row">
           <div class="col-md-8 col-12 d-flex align-items-center" style="height: 100%">
             <div class="mt-90 w-100">
-              <h1 class="text-left h6">Bem-vindo ao banco de dados dos Profissionais da ServMachine</h1>
+              <h1 class="text-left h6">Bem-vindo ao banco de dados dos Profissionais certificados ServMachine</h1>
               <form action="" id="formPesquisa">
                 <div class="relative row justify-content-start py-5">
                   <input type="text" name="nome" class="form-control col-md-4 col-10 mb-2 mb-md-0 mr-md-2"
-                    placeholder="Nome do Aluno" value="" style="
+                    placeholder="Nome do Profissional" value="" style="
                         background-image: url(&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAADPSURBVHgB7ZRtDcIwEIavBAGVUAcgYRJwABJwABJwwCTgYEgABZMwHJQ7uIZLA9uN3X4s2ZO8abP2vrcBzEyCGGNAVagmvqF9AAvYeXIsaUyCcLZEifIcsEyVwFBExkE886mKLvsFdPPIVsJn6/+IFp25PZ73Zi0ad8giSCUc272mQ3Fth5hlgcsGtUKt4TNUGvgNdUddnHNX6AM63qHqqIfubrXOD9kgT1TJl++g4LNa3N9rAiSDIyghxykhzeUX0JNfdss2AzBA86uYmThPUqFUP3ClOSwAAAAASUVORK5CYII=&quot;);
                         background-size: 25px;
                         background-position: 5px center;
@@ -313,7 +313,7 @@
           <a href="{% url 'index'%}#servicos">Serviços</a><br />
           <a href="{% url 'profissionais'%}">Nossos Instrutores</a><br />
           <a href="{% url 'index'%}#treinamentos">Agenda de Treinamento</a><br />
-          <a href="{% url 'alunos'%}">Alunos Certificados</a><br />
+          <a href="{% url 'alunos'%}">Profissionais Certificados</a><br />
           <a href="{% url 'index'%}#museu">Museu Do HDD</a><br />
           <a href="{% url 'index'%}#contato">Contato</a><br />
         </div>
@@ -594,7 +594,7 @@
 
       // Atualiza contagem
       var todos = document.getElementById("todos");
-      todos.innerHTML = `<strong>${count} Alunos encontrados</strong>`;
+      todos.innerHTML = `<strong>${count} Profissionais encontrados</strong>`;
 
       // Renderiza os cards
       displayTrainings(results);
