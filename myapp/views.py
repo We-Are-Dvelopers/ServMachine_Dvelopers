@@ -4,6 +4,7 @@ from django.http import JsonResponse
 from django.http import HttpResponseRedirect
 from datetime import datetime
 from django.shortcuts import render
+from django.conf import settings as django_settings
 import pytz
 import json
 import math
@@ -212,14 +213,32 @@ def api_professionals_cache(request):
     except Exception as e:
         return JsonResponse({'error': str(e)}, status=502)
 
+    import unicodedata
+
+    def remove_accents(input_str):
+        if not input_str:
+            return ""
+        nfkd_form = unicodedata.normalize('NFKD', str(input_str))
+        return "".join([c for c in nfkd_form if not unicodedata.combining(c)])
+
     # Filtros
     nome = request.GET.get('nome', '').strip()
     especialidade = request.GET.get('especialidade', '').strip()
 
     filtered = all_professionals
+
+    # Ordena alfabeticamente por nome e sobrenome
+    filtered.sort(key=lambda p: (
+        remove_accents(p.get('name', '')).lower(),
+        remove_accents(p.get('surname', '')).lower()
+    ))
+
     if nome:
-        nome_lower = nome.lower()
-        filtered = [p for p in filtered if p.get('name', '').lower().startswith(nome_lower)]
+        nome_clean = remove_accents(nome).lower()
+        filtered = [
+            p for p in filtered
+            if nome_clean in remove_accents(f"{p.get('name', '')} {p.get('surname', '')}").lower()
+        ]
     if especialidade:
         filtered = [p for p in filtered if p.get('specialty') == especialidade]
 
@@ -347,7 +366,7 @@ def visualizar_certificado(request):
             
             if professional:
                 if professional[7] == cpf:
-                    certificate_url = f'https://servmachine.com.br/certificates?id={id}&document={cpf}'
+                    certificate_url = f'{django_settings.EXTERNAL_API_BASE_URL}/certificates?id={id}&document={cpf}'
                     return JsonResponse({'success': True, 'certificate_url': certificate_url})
                 else:
                     return JsonResponse({'success': False, 'message': 'CPF não corresponde ao registrado.'})
@@ -455,7 +474,7 @@ def visualizar_certificado_en(request):
             
             if professional:
                 if professional[7] == cpf:
-                    certificate_url = f'https://servmachine.com.br/certificates?id={id}&document={cpf}&locale=en'
+                    certificate_url = f'{django_settings.EXTERNAL_API_BASE_URL}/certificates?id={id}&document={cpf}&locale=en'
                     return JsonResponse({'success': True, 'certificate_url': certificate_url})
                 else:
                     return JsonResponse({'success': False, 'message': 'CPF does not match the registered one.'})
