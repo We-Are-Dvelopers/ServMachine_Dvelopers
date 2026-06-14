@@ -727,10 +727,15 @@
           validado = `<p style="color: yellow; font-weight: 600;">Curso em Andamento</p>`;
         }
 
+        const subtituloIN = training.specialty === "IN"
+          ? `<p style="font-size: 16px; color: #000; margin: 0 0 4px 0; font-weight: 600;">Engenheiros, Supervisores, Encarregados, Fiscais e TST</p>`
+          : '';
+
         newDiv.innerHTML = `
             <img src="${training.picture}" alt="Profile Image" class="imagem" style="height: 230px; width: 160px; object-fit: cover;">
             <div class="conteudo">
-                <h5>${titulo}</h5>
+                <h5 style="margin: 0;">${titulo}</h5>
+                ${subtituloIN}
                 <h4>${training.name} ${training.surname}</h4>
                 ${validado}
             </div>
