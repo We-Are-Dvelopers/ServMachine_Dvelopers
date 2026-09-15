@@ -171,6 +171,53 @@
       transform: scale(1);
     }
   }
+
+  .custom-tooltip-wrapper {
+    position: relative;
+    display: inline-block;
+    vertical-align: baseline;
+    cursor: pointer;
+  }
+
+  .custom-tooltip-wrapper .custom-tooltip-badge {
+    visibility: hidden;
+    width: max-content;
+    max-width: 250px;
+    background-color: #134A73;
+    color: #ffffff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 6px 10px;
+    position: absolute;
+    z-index: 99999;
+    bottom: 125%;
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0;
+    transition: opacity 0.2s ease-in-out, visibility 0.2s ease-in-out;
+    font-size: 12px;
+    font-weight: 500;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    pointer-events: none;
+    white-space: normal;
+    line-height: 1.3;
+  }
+
+  .custom-tooltip-wrapper .custom-tooltip-badge::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #134A73 transparent transparent transparent;
+  }
+
+  .custom-tooltip-wrapper:hover .custom-tooltip-badge {
+    visibility: visible;
+    opacity: 1;
+  }
 </style>
 
 <body id="top">
@@ -220,14 +267,14 @@
   </header>
 
   <div style="padding-top: 80px">
-    <section class="segundo-banner">
+    <section class="segundo-banner" style="padding: 70px 0;">
       <div class="container">
-        <div class="row">
-          <div class="col-md-8 col-12 d-flex align-items-center" style="height: 100%">
-            <div class="mt-90 w-100">
-              <h1 class="text-left h6">Bem-vindo ao banco de dados dos profissionais certificados ServMachine</h1>
+        <div class="row align-items-center">
+          <div class="col-md-8 col-12 d-flex align-items-center">
+            <div class="w-100">
+              <h1 class="text-left h6 mb-0">Bem-vindo ao banco de dados dos profissionais certificados ServMachine</h1>
               <form action="" id="formPesquisa">
-                <div class="relative row justify-content-start py-5">
+                <div class="relative row justify-content-start py-4">
                   <input type="text" name="nome" class="form-control col-md-4 col-10 mb-2 mb-md-0 mr-md-2"
                     placeholder="Nome do Profissional" value="" style="
                         background-image: url(&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAADPSURBVHgB7ZRtDcIwEIavBAGVUAcgYRJwABJwABJwwCTgYEgABZMwHJQ7uIZLA9uN3X4s2ZO8abP2vrcBzEyCGGNAVagmvqF9AAvYeXIsaUyCcLZEifIcsEyVwFBExkE886mKLvsFdPPIVsJn6/+IFp25PZ73Zi0ad8giSCUc272mQ3Fth5hlgcsGtUKt4TNUGvgNdUddnHNX6AM63qHqqIfubrXOD9kgT1TJl++g4LNa3N9rAiSDIyghxykhzeUX0JNfdss2AzBA86uYmThPUqFUP3ClOSwAAAAASUVORK5CYII=&quot;);
@@ -263,14 +310,14 @@
               </form>
             </div>
           </div>
-          <div class="col-md-4 col-12 d-md-block d-none">
-            <img src="/static/images/BRSM.png" alt="" style="height: 100%; width: auto" />
+          <div class="col-md-4 col-12 d-md-block d-none text-right">
+            <img src="/static/images/BRSM.png" alt="" style="max-height: 260px; width: auto;" />
           </div>
         </div>
       </div>
     </section>
-    <section class="banner section homenagem" style="height: auto">
-      <h4 class="text-center" id="todos"></h4>
+    <section class="banner section homenagem" style="height: auto; padding-top: 60px; padding-bottom: 60px;">
+      <h4 class="text-center mb-3" id="todos"></h4>
       <div id="trainings" class="row px-md-5 px-0 mx-md-5 mx-0 mt-3"></div>
       <div id="pagination" class="d-flex justify-content-center mt-4"></div>
     </section>
@@ -681,22 +728,16 @@
           }
         }
 
-        let registro;
-        let validado;
+        const isValid = training.last_course && training.last_course.valid;
+        const isCertificateValid = training.last_course && training.last_course.certificate_valid;
 
-        let date = new Date(training.last_course.expiration_date);
-        let formattedDate = `${date.getDate().toString().padStart(2, "0")}/${(date.getMonth() + 1).toString().padStart(2, "0")}/${date.getFullYear()}`;
+        let statusTextHtml;
+        let buttonsHtml = '';
 
-        const today = new Date();
-        today.setHours(0, 0, 0, 0);
-
-        //verifica se o certificado está expirado
-        const isExpired = date < today;
-
-        if (training.last_course.certificate_valid && !isExpired) {
-          //certificado válido e não expirado
-          registro = "Válido";
-          validado = `<p style="color: rgb(76 175 80); font-weight: 600;">Registro ${registro}</p>
+        if (isValid) {
+          // certificado válido e dentro da validade
+          statusTextHtml = `<p style="color: rgb(76 175 80); font-weight: 600; margin: 0 0 4px 0;">Certificado Válido</p>`;
+          buttonsHtml = `
                 <div class="d-md-flex mt-2 flex-column">
                     <button class="d-flex justify-content-center align-items-center openModalBtn mb-2" style="background: #3575E2; color: #fff; border: none; border-radius: 10px;" data-id="${training.id}">
                         <img class="mt-1" width="28" height="28" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABUAAAAVCAYAAACpF6WWAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAACjSURBVHgB7ZPRDcIwDETPiAE6QjaBEdgARmCDMgqbMEJHgBG6gbkIf1RWQhz4gz7JsmSdn6KmAf4aiYRUdWDLNYvI3MpvEOPAultvEpV28SNSXtC+Z96UcvHMdmMf3Xy0+RG95N+INemLUh/wCU6sXwvfnLhPyIVky5eC+OqFOWf5tJxvEcCe5glBatKdP20thwiFi2kxeYdUxAlB+GkeWFnyBH7FxH4M3ivnAAAAAElFTkSuQmCC" alt="download-icon">
@@ -709,27 +750,51 @@
                         <img class="ml-2 mt-1" width="20" height="20" src="${window.staticUrls.usFlag}" alt="us-icon">
                     </button>
                 </div>`;
-        } else if (isExpired) {
-          //certificado expirado
-          registro = "Inválido";
-          validado = `<p style="color: red; font-weight: 600;">Registro Expirado</p>`;
+        } else if (isCertificateValid) {
+          // curso concluído mas expirado
+          statusTextHtml = `<p style="color: red; font-weight: 600; margin: 0 0 4px 0;">Certificado Expirado</p>`;
         } else {
-          //curso em andamento
-          registro = "Inválido";
-          validado = `<p style="color: yellow; font-weight: 600;">Curso em Andamento</p>`;
+          // curso em andamento
+          statusTextHtml = `<p style="color: #d97706; font-weight: 600; margin: 0 0 4px 0;">Curso em Andamento</p>`;
         }
 
         const subtituloIN = training.specialty === "IN"
-          ? `<p style="font-size: 16px; color: #000; margin: 0 0 4px 0; font-weight: 600;">Engenheiros, Supervisores, Encarregados, Fiscais e TST</p>`
+          ? `<p style="font-size: 13px; color: #666; margin: 0 0 4px 0; font-weight: 500;">Engenheiros, Supervisores, Encarregados, Fiscais e TST</p>`
           : '';
 
+        const trainingTypeMap = {
+          "CP": "Capacitação",
+          "RC": "Reciclagem",
+          "Q1": "Qualificação Navegador Operador Inspetor (40h)",
+          "Q2": "Qualificação Navegador Operador Inspetor (24h)",
+          "QI": "Qualificação Inspetor (8h)",
+          "QM": "Qualificação Mapeador",
+          "WK": "Workshop",
+          "QD": "Qualificação Inspetor de Perfuração Direcional (16h)",
+          "RM": "Reciclagem Mapeador"
+        };
+
+        let cargaHtml = '';
+        if (training.last_course && training.last_course.hours) {
+          let typeStr = '';
+          if (training.last_course.training_type) {
+            const rawType = String(training.last_course.training_type).trim();
+            const desc = trainingTypeMap[rawType] || rawType;
+            typeStr = ` (${rawType}) <span class="custom-tooltip-wrapper" title="${desc}"><svg width="13" height="13" viewBox="0 0 16 16" fill="currentColor" style="vertical-align: -1px; margin-left: 2px; color: #134A73;"><path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/><path d="M5.255 5.786a.237.237 0 0 0 .241.247h.825c.138 0 .248-.113.266-.25.09-.656.54-1.134 1.342-1.134.686 0 1.314.343 1.314 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.003.217a.25.25 0 0 0 .25.246h.811a.25.25 0 0 0 .25-.25v-.105c0-.701.355-1.025 1.019-1.512.673-.489 1.357-1.06 1.357-2.31 0-1.745-1.42-2.366-2.903-2.366-1.636 0-2.81 1.056-2.912 2.39zm1.785 6.302c0 .498.42.9.93.9.52 0 .93-.402.93-.9 0-.498-.41-.898-.93-.898-.51 0-.93.4-.93.898z"/></svg><span class="custom-tooltip-badge">${desc}</span></span>`;
+          }
+          cargaHtml = `<p style="margin: 0 0 4px 0; font-size: 14px; color: #333;"><strong>Carga horária:</strong> ${training.last_course.hours}h${typeStr}</p>`;
+        }
+
         newDiv.innerHTML = `
-            <img src="${training.picture}" alt="Profile Image" class="imagem" style="height: 230px; width: 160px; object-fit: cover;">
+            <img src="${training.picture}" alt="Profile Image" class="imagem" style="height: 230px; width: 160px; object-fit: cover; border-radius: 8px;">
             <div class="conteudo">
-                <h5 style="margin: 0;">${titulo}</h5>
+                <h4 style="margin: 0 0 2px 0;">${training.name} ${training.surname}</h4>
+                <h5 style="margin: 0 0 4px 0; font-size: 16px; font-weight: 700; color: #333;">${titulo}</h5>
                 ${subtituloIN}
-                <h4>${training.name} ${training.surname}</h4>
-                ${validado}
+                <p style="margin: 0 0 4px 0; font-size: 14px; color: #000;"><strong>Nº de Registro:</strong> #${training.id}</p>
+                ${cargaHtml}
+                ${statusTextHtml}
+                ${buttonsHtml}
             </div>
         `;
 
