@@ -164,8 +164,14 @@ def profissionais(request):
 def alunos(request):
     return render(request, 'alunos.html')
 
+def material(request):
+    return render(request, 'material.html', {
+        'external_api_url': django_settings.EXTERNAL_API_BASE_URL
+    })
+
 def old_profissionais(request):
     return render(request, 'old_profissionais.html')
+
 
 
 def _fetch_all_professionals():

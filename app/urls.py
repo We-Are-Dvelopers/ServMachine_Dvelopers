@@ -13,11 +13,14 @@ urlpatterns = [
     path('profissionais', views.profissionais, name='profissionais'),
     path('old_profissionais', views.old_profissionais, name='old_profissionais'),
     path('alunos', views.alunos, name='alunos'),
+    path('material', views.material, name='material'),
+    path('apostila', views.material, name='apostila'),
     path('visualizar_certificado', views.visualizar_certificado, name='visualizar_certificado'),
     path('visualizar_certificado_en', views.visualizar_certificado_en, name='visualizar_certificado_en'),
     path('proxy/alunos/', views.api_professionals_cache, name='api_alunos'),
     re_path(r'^.*$', views.index, name='catch_all'),
 ]
+
 
 if settings.DEBUG:
     urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
